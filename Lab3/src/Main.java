@@ -25,20 +25,27 @@ public class Main {
             System.err.println(e.getMessage());
             System.err.println(e);
         }
+        scanner.close();
     }
 
     static private void check(String liczzba1){
         int liczba=Integer.parseInt(liczzba1);
-        if(liczba>-1000&&liczba<1000&&liczba>99&&liczba<-99){
+        if((liczba>-1000&&liczba<-99) ||(liczba<1000&&liczba>99)){
             System.out.println("Twoja liczba to: ");
-            if(liczba<0){
-                System.out.print(hashMap.get(liczzba1.substring(0,1))+" ");
+            if(liczba<0) {
+                System.out.print(hashMap.get(liczzba1.substring(0, 1)) + " ");
+                System.out.println(hashMap.get(liczzba1.substring(1, 2)) + " " + hashMap.get(liczzba1.substring(2, 3)) + " " + hashMap.get(
+                        liczzba1.substring(3, 4)));
+            }else
+            {
+                System.out.println(hashMap.get(liczzba1.substring(0, 1) )+ " "+hashMap.get(liczzba1.substring(1, 2)) + " " + hashMap.get(liczzba1.substring(2, 3)) + " " );
+
             }
-            System.out.println(hashMap.get(liczzba1.substring(1,2))+" "+hashMap.get(liczzba1.substring(2,3))+" "+hashMap.get(liczzba1.substring(3,4)));
+
         }else if(liczba>999&&liczba<-999) {
             throw new IllegalArgumentException("Liczba przekracza zakres: -1000<liczba<-99&&99<liczba<1000 ");
         }else
-            throw new IllegalArgumentException("liczba nie jest 3 cyfrowa1");
+            throw new IllegalArgumentException("liczba nie jest 3 cyfrowa !");
     }
     static HashMap<String, String > hashMap= new HashMap<>();
 }
